@@ -3,16 +3,16 @@ package springbootresapi.springbootapiservice.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import springbootresapi.springbootapiservice.dao.User;
-import springbootresapi.springbootapiservice.repository.UserRepository;
+import springbootresapi.springbootapiservice.repos.UserRepository;
 
-@Controller
-@RequestMapping("user")
+@RestController
 public class UserController {
 
 	@Autowired
-	private UserRepository userRepository;
+	public UserRepository userRepository;
 	
 	@RequestMapping("/add")
 	public String addUser(){
