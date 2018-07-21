@@ -1,9 +1,14 @@
 package springbootresapi.springbootapiservice.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -13,6 +18,8 @@ public class Category {
 	private int id;
 	private String categoryName;
 	
+	@OneToMany(mappedBy="category", cascade=CascadeType.ALL)
+	private List<Product> products = new ArrayList<Product>();
 	public int getId() {
 		return id;
 	}
